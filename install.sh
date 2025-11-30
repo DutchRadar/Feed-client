@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-REPO="https://github.com/DutchRadar/Feed-client"
+REPO="https://github.com/DutchRadar/Feed-client.git"
 BRANCH="master"
 IPATH=/usr/local/share/dutchradar
 mkdir -p $IPATH

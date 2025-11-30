@@ -151,6 +151,7 @@ fi
 
 cp "$GIT/uninstall.sh" "$IPATH"
 cp "$GIT"/scripts/*.sh "$IPATH"
+chmod 755 "$IPATH"/*.sh || true
 
 UNAME=dutchradar
 if ! id -u "${UNAME}" &>/dev/null
@@ -372,6 +373,7 @@ fi
 
 if [[ -f /etc/default/dutchradar ]]; then
     sed -i -e 's|feed.dutchradar.nl,[0-9]\{1,5\}.*|feed.dutchradar.nl,5001|' /etc/default/dutchradar || true
+
 
 fi
 

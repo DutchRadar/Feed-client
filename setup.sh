@@ -43,7 +43,7 @@ fi
 
 if [ -f /boot/dutchradar-config.txt ]; then
     echo --------
-    echo "You are using the adsb.lol image, the feed setup script does not need to be installed."
+    echo "You are using the DutchRadar.nl Feed Client, the feed setup script does not need to be installed."
     echo "You should already be feeding."
     echo "If the feed isn't working, check/correct the configuration using nano:"
     echo --------

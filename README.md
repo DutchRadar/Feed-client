@@ -1,4 +1,4 @@
-# DutchRadar.nl feed
+# dutchradar.nl feed
 
 - These scripts aid in setting up your current ADS-B receiver to feed [dutchradar.nl](https://dutchradar.nl)
 - They will not disrupt any existing feed clients already present

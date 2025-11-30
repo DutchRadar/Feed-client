@@ -1,6 +1,6 @@
-# adsb.lol feed client classic
+# dutchradar.nl feed
 
-- These scripts aid in setting up your current ADS-B receiver to feed [adsb.lol](https://adsb.lol)
+- These scripts aid in setting up your current ADS-B receiver to feed [dutchradar.nl](https://dutchradar.nl)
 - They will not disrupt any existing feed clients already present
 
 ## 1: Find coordinates / elevation:
@@ -10,46 +10,36 @@
 ## 2: Install the dutchradar feed client
 
 ```
-curl -L -o /tmp/LOLfeed.sh https://raw.githubusercontent.com/dutchradar/feed/master/install.sh
-sudo bash /tmp/LOLfeed.sh
+curl -L -o /tmp/dutchradarfeed.sh https://raw.githubusercontent.com/dutchradar/Feed-client/master/install.sh
+sudo bash /tmp/dutchradarfeed.sh
 ```
 
 ## 3: Check if your feed is working
 
-That one's easy! Just go to <https://adsb.lol> and you should show as feeding.
+That one's easy! Just go to <https://dutchradar.nl/sync/0A/> and you should show as receiver.
+This only work if Mlat connection is active. 
 
 Want to make sure? You can get into looking at your connections..
 
-The feed IP for adsb.lol is currently 142.132.241.63
+The feed IP for dutchradar.nl is currently 5.255.77.82
 
 ```
-$ host feed.adsb.lol
-feed.adsb.lol has address 142.132.241.63
+$ host feed.dutchradar.nl
+feed.dutchradar.nl has address 5.255.77.82
 ```
 
 Expected Output:
 ```
 $ netstat -t -n | grep -E '30004|31090'
-tcp        0    182 localhost:43530     142.132.241.63:31090      ESTABLISHED
-tcp        0    410 localhost:47332     142.132.241.63:30004      ESTABLISHED
-```
-
-### Optional: local interface for your data http://192.168.X.XX/dutchradar
-
-Install / Update:
-```
-sudo bash /usr/local/share/dutchradar/git/install-or-update-interface.sh
-```
-Remove:
-```
-sudo bash /usr/local/share/tar1090/uninstall.sh dutchradar
+tcp        0    182 localhost:43530     5.255.77.82:31090      ESTABLISHED
+tcp        0    410 localhost:47332     5.255.77.82:30004      ESTABLISHED
 ```
 
 ### Update the feed client without reconfiguring
 
 ```
-curl -L -o /tmp/LOLupdate.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/update.sh
-sudo bash /tmp/LOLupdate.sh
+curl -L -o /tmp/dutchradarupdate.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/update.sh
+sudo bash /tmp/dutchradarupdate.sh
 ```
 
 
@@ -74,11 +64,11 @@ If the client is up to date it should not take as long as the original installat
 otherwise this will also update the client which will take a moment.
 
 ```
-curl -L -o /tmp/Dutchradarfeed.sh https://raw.githubusercontent.com/dutchradar/feed/master/install.sh
+curl -L -o /tmp/Dutchradarfeed.sh https://raw.githubusercontent.com/dutchradar/Feed-client/master/install.sh
 sudo bash /tmp/Dutchradarfeed.sh
 ```
 
-### Disable / Enable adsb.lol MLAT-results in your main decoder interface (readsb / dump1090-fa)
+### Disable / Enable dutchradar.nl MLAT-results in your main decoder interface (readsb / dump1090-fa)
 
 - Disable:
 

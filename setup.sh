@@ -43,7 +43,7 @@ fi
 
 if [ -f /boot/dutchradar-config.txt ]; then
     echo --------
-    echo "You are using the adsb.lol image, the feed setup script does not need to be installed."
+    echo "You are using already the client, the feed setup script does not need to be installed."
     echo "You should already be feeding."
     echo "If the feed isn't working, check/correct the configuration using nano:"
     echo --------
@@ -57,7 +57,7 @@ fi
 
 bash "$IPATH/git/configure.sh"
 
-whiptail --backtitle "$BACKTITLETEXT" --title "$BACKTITLETEXT" --yesno "We are now ready to begin setting up your receiver to feed adsb.lol.\n\nDo you wish to proceed?" 9 78 || exit 1
+whiptail --backtitle "$BACKTITLETEXT" --title "$BACKTITLETEXT" --yesno "We are now ready to begin setting up your receiver to feed DutchRadar.nl.\n\nDo you wish to proceed?" 9 78 || exit 1
 
 bash "$IPATH/git/update.sh"
 

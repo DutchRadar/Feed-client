@@ -335,7 +335,7 @@ systemctl is-active dutchradar-feed &>/dev/null || {
     echo "---------------------------------"
     journalctl -u dutchradar-feed | tail -n10
     echo "---------------------------------"
-    echo "dutchradar-feed service couldn't be started, please report this error to info@dutchradar.nl or Telegram https://t.me/DutchRadar."
+    echo "dutchradar-feed service couldn't be started, please report this error to the dutchradar forum or discord."
     echo "Try an copy as much of the output above and include it in your report, thank you!"
     echo "---------------------------------"
     exit 1
@@ -347,7 +347,7 @@ echo 96
     echo "---------------------------------"
     journalctl -u dutchradar-mlat | tail -n10
     echo "---------------------------------"
-    echo "dutchradar-mlat service couldn't be started, please report this error to info@dutchradar.nl or Telegram https://t.me/DutchRadar."
+    echo "dutchradar-mlat service couldn't be started, please report this error to the dutchradar.nl discord."
     echo "Try an copy as much of the output above and include it in your report, thank you!"
     echo "---------------------------------"
     exit 1
@@ -372,7 +372,6 @@ fi
 
 if [[ -f /etc/default/dutchradar ]]; then
     sed -i -e 's|feed.dutchradar.nl,[0-9]\{1,5\}.*|feed.dutchradar.nl,5001|' /etc/default/dutchradar || true
-
 
 fi
 

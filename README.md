@@ -10,7 +10,7 @@
 ## 2: Install the dutchradar feed client
 
 ```
-curl -L -o /tmp/dutchradarfeed.sh https://raw.githubusercontent.com/dutchradar/Feed-client/master/install.sh
+curl -L -o /tmp/dutchradarfeed.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/install.sh
 sudo bash /tmp/dutchradarfeed.sh
 ```
 
@@ -38,8 +38,8 @@ tcp        0    410 localhost:47332     5.255.77.82:30004      ESTABLISHED
 ### Update the feed client without reconfiguring
 
 ```
-curl -L -o /tmp/dutchradarupdate.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/update.sh
-sudo bash /tmp/dutchradarupdate.sh
+curl -L -o /tmp/Dutchradarupdate.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/update.sh
+sudo bash /tmp/Dutchradarupdate.sh
 ```
 
 
@@ -64,7 +64,7 @@ If the client is up to date it should not take as long as the original installat
 otherwise this will also update the client which will take a moment.
 
 ```
-curl -L -o /tmp/Dutchradarfeed.sh https://raw.githubusercontent.com/dutchradar/Feed-client/master/install.sh
+curl -L -o /tmp/Dutchradarfeed.sh https://raw.githubusercontent.com/DutchRadar/Feed-client/master/install.sh
 sudo bash /tmp/Dutchradarfeed.sh
 ```
 

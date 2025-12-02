@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #####################################################################################
-#                        DutchRadar.nl SETUP SCRIPT                                 #
+#                        DutchRadar.nl Update SCRIPT                                #
 #####################################################################################
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                                   #
@@ -114,10 +114,18 @@ else
 fi
 cd "$GIT"
 
-if diff "$GIT/update.sh" "$IPATH/update.sh" &>/dev/null; then
-    rm -f "$IPATH/update.sh"
-    cp "$GIT/update.sh" "$IPATH/update.sh"
-    bash "$IPATH/update.sh"
+if [ -f /etc/default/dutchradar ] && bash -n /etc/default/dutchradar 2>/dev/null && grep -q "^USER=" /etc/default/dutchradar; then
+    echo "Existing valid config found - running update directly"
+    cd "$GIT"
+    bash update.sh
+    exit $?
+else
+    echo "No valid config found - running full setup"
+    if diff "$GIT/update.sh" "$IPATH/update.sh" &>/dev/null; then
+        rm -f "$IPATH/update.sh"
+        cp "$GIT/update.sh" "$IPATH/update.sh"
+    fi
+    bash "$GIT/setup.sh"
     exit $?
 fi
 

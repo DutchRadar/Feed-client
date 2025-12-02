@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #####################################################################################
-#                        DutchRadar.nl Update SCRIPT                                #
+#                        DutchRadar.nl Update/SETUP SCRIPT                          #
 #####################################################################################
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 #                                                                                   #
@@ -114,12 +114,11 @@ else
 fi
 cd "$GIT"
 
-if [ -f /etc/default/dutchradar ] && bash -n /etc/default/dutchradar 2>/dev/null && grep -q "^USER=" /etc/default/dutchradar; then
-    echo "Using existing config - running core update logic"
-    source /etc/default/dutchradar
-    # Continue with packages/mlat/readsb/services - NO script calls!
-else
-    bash "$GIT/setup.sh"
+if diff "$GIT/update.sh" "$IPATH/update.sh" &>/dev/null; then
+    rm -f "$IPATH/update.sh"
+    cp "$GIT/update.sh" "$IPATH/update.sh"
+    bash "$IPATH/update.sh"
+    exit $?
 fi
 
 if [ -f /boot/dutchradar-config.txt ]; then
@@ -153,8 +152,6 @@ fi
 cp "$GIT/uninstall.sh" "$IPATH"
 cp "$GIT"/scripts/*.sh "$IPATH"
 chmod 755 "$IPATH"/*.sh || true
-cp "$GIT"/configure.sh "$IPATH/" || true
-chmod 755 "$IPATH/configure.sh" || true
 
 UNAME=dutchradar
 if ! id -u "${UNAME}" &>/dev/null

@@ -115,13 +115,11 @@ fi
 cd "$GIT"
 
 if [ -f /etc/default/dutchradar ] && bash -n /etc/default/dutchradar 2>/dev/null && grep -q "^USER=" /etc/default/dutchradar; then
-    echo "Existing valid config found - running update directly"
-    source /etc/default/dutchradar  # ← Source config HIER
-    # Continue met rest van update.sh logica (geen recursie!)
+    echo "Using existing config - running core update logic"
+    source /etc/default/dutchradar
+    # Continue with packages/mlat/readsb/services - NO script calls!
 else
-    echo "No valid config found - running full setup"
     bash "$GIT/setup.sh"
-    exit $?
 fi
 
 if [ -f /boot/dutchradar-config.txt ]; then

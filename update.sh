@@ -116,15 +116,10 @@ cd "$GIT"
 
 if [ -f /etc/default/dutchradar ] && bash -n /etc/default/dutchradar 2>/dev/null && grep -q "^USER=" /etc/default/dutchradar; then
     echo "Existing valid config found - running update directly"
-    cd "$GIT"
-    bash update.sh
-    exit $?
+    source /etc/default/dutchradar  # ← Source config HIER
+    # Continue met rest van update.sh logica (geen recursie!)
 else
     echo "No valid config found - running full setup"
-    if diff "$GIT/update.sh" "$IPATH/update.sh" &>/dev/null; then
-        rm -f "$IPATH/update.sh"
-        cp "$GIT/update.sh" "$IPATH/update.sh"
-    fi
     bash "$GIT/setup.sh"
     exit $?
 fi

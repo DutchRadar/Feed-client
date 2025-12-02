@@ -152,8 +152,7 @@ fi
 cp "$GIT/uninstall.sh" "$IPATH"
 cp "$GIT"/scripts/*.sh "$IPATH"
 chmod 755 "$IPATH"/*.sh || true
-cp "$GIT/configure.sh" "$IPATH/" || true
-cp "$GIT/setup.sh" "$IPATH/" || true
+cp "$GIT"/{configure.sh,setup.sh} "$IPATH/" || true
 chmod 755 "$IPATH/configure.sh" "$IPATH/setup.sh" || true
 
 UNAME=dutchradar
